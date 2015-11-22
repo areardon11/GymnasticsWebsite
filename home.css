@@ -1,0 +1,135 @@
+.practice .information {
+  margin: 50px 0 100px;
+  font-weight: 100;
+}
+
+.practice .hours {
+  font-size: 24px;
+}
+
+.practice .hours,
+.practice .location {
+  text-align: center;
+  margin: 20px 0;
+}
+
+
+.posts {
+  list-style: none;
+  padding: 0;
+  margin: 30px auto;
+  width: 700px;
+  font-size: 18px;
+  font-weight: 100;
+  text-align: justify;
+}
+
+.pricing {
+  background: #B9D3B6;
+  color: black;
+  font-weight: 300;
+}
+
+.pricing h2 {
+  font-weight: 300;
+}
+
+.options {
+  display: table;
+  margin-left: -50px;
+  margin-top: -50px;
+  width: 1100px;
+  border-collapse: separate;
+  border-spacing: 50px;
+}
+
+.option {
+  display: table-cell;
+  width: 10%;
+}
+
+.option > * {
+  padding: 10px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.option .name {
+  background: #00B2A5;
+  border-bottom: none;
+  border-radius: 5px;
+}
+
+.option .hours {
+  height: 105px;
+}
+
+.option .extra {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.option .classes {
+  height: 70px;
+}
+
+.option .price {
+  font-weight: 400;
+  height: 80px;
+}
+
+.option .requirements {
+  font-size: 16px;
+  height: 85px;
+  border-bottom: none;
+}
+
+.option .action {
+  position: relative;
+  width: 100%;
+  height: 90px;
+  display: table;
+  padding: 0;
+  border-spacing: 0;
+  border-bottom: none;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.option .action:hover {
+  top: -1px;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+
+.option .action a {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-decoration: none;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+.drop-in .action {
+  background-color: #00B0DA;
+}
+
+.blue-team .action {
+  background-color: #003262;
+}
+
+.gold-team .action {
+  background-color: #FDB515;
+}
+
+.gold-team .action a {
+  color: black;
+  font-weight: 300;
+}
+
+.cash-note {
+  text-align: center;
+}

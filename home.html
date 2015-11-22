@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cal Gymnastics Club</title>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <meta charset="UTF-8">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="home.js"></script>
+  <script src="general.js"></script>
+</head>
+<body>
+
+<header class="header">
+  <hgroup class="title in-header">
+    <img class="logo" src="cal.svg" />
+    <h1 class="name"><span class="cal">Cal </span>Gymnastics Club</h1>
+  </hgroup>
+
+  <nav class="navigation">
+    <div class="content">
+      <ul class="main-pages">
+        <li class="home-link">
+          <a href="/" class="current">Home</a>
+          <ul class="sub-pages">
+            <li><a class="practice-link" href="#practice">Practice</a></li>
+            <li><a>Blue Team</a></li>
+            <li><a>Gold Team</a></li>
+            <li><a href="https://myrecreation.berkeley.edu/store/index.aspx?view=activity&Unit=32&Rsc=265" target="_blank">Online Store</a></li>
+          </ul>
+        </li><li>
+          <a>Classes</a>
+      </ul>
+      <ul class="main-pages right">
+        </li><li>
+          <a>News</a>
+        </li><li>
+          <a>About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="cover">
+    <div class="content">2
+      <a class="scroll-down" href="#practice">v</a>
+    </div>
+    <div class="video-container">
+      <video loop preload autoplay muted src="https://www.tumblr.com/video_file/95702400964/tumblr_naufe33ewP1tjhjyc"></video>
+    </div>
+  </div>
+</header>
+
+<article class="home">
+  <style>
+    .practice .information {
+      margin: 50px 0 100px;
+    }
+
+    .practice .hours {
+      font-size: 24px;
+    }
+
+    .practice .hours,
+    .practice .location {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+
+    .posts {
+      list-style: none;
+      padding: 0;
+      margin: 30px auto;
+      width: 700px;
+      font-size: 18px;
+      text-align: justify;
+    }
+
+    .pricing {
+      background: #B9D3B6;
+      color: black;
+    }
+
+    .options {
+      display: table;
+      margin-left: -50px;
+      margin-top: -50px;
+      width: 1100px;
+      border-collapse: separate;
+      border-spacing: 50px;
+    }
+
+    .option {
+      display: table-cell;
+      width: 10%;
+    }
+
+    .option > * {
+      padding: 10px 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+
+    .option .name {
+      background: #00B2A5;
+      border-bottom: none;
+      border-radius: 5px;
+      font-weight: 400;
+    }
+
+    .option .hours {
+      height: 105px;
+    }
+
+    .option .extra {
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .option .classes {
+      height: 70px;
+    }
+
+    .option .price {
+      font-weight: 400;
+      height: 80px;
+    }
+
+    .option .requirements {
+      font-size: 16px;
+      height: 85px;
+      border-bottom: none;
+    }
+
+    .option .action {
+      position: relative;
+      width: 100%;
+      height: 90px;
+      display: table;
+      padding: 0;
+      border-spacing: 0;
+      border-bottom: none;
+      border-radius: 5px;
+      transition: all 0.2s;
+    }
+
+    .option .action:hover {
+      top: -1px;
+      box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    }
+
+    .option .action a {
+      display: table-cell;
+      vertical-align: middle;
+      padding: 20px;
+      width: 100%;
+      height: 100%;
+      color: white;
+      text-decoration: none;
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+
+    .drop-in .action {
+      background-color: #00B0DA;
+    }
+
+    .blue-team .action {
+      background-color: #003262;
+    }
+
+    .gold-team .action {
+      background-color: #FDB515;
+    }
+
+    .gold-team .action a {
+      color: black;
+    }
+
+    .cash-note {
+      text-align: center;
+    }
+  </style>
+
+  <section class="practice">
+    <a class="anchor" id="practice"></a>
+    <div class="content">
+      <h2>Practice</h2>
+      <div class="information">
+        <div class="hours">
+          Monday–Friday, 8:30–11:30p
+        </div>
+        <div class="location">
+          <a href="https://www.google.com/maps/place/Cal+Gymnastics+Club" target="_blank">
+            Golden Bear Rec Center, Sport Lane 25, Berkeley, CA
+          </a>
+        </div>
+      </div>
+      <ul class="posts">
+        <li class="post">
+          <h3>Free Trial period Monday, August 25–Friday, September 5</h3>
+          <p>
+            Welcome to the beginning of the Fall season. We're starting off
+            with the two week free trial period when you can drop-in to the blue team
+            practice 8:30–9:30p for free. We have basics classes every day
+            of the week so come and join to start or continue your gymnastics practice.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="pricing">
+    <div class="content">
+      <h2>Options</h2>
+
+      <div class="options">
+        <div class="drop-in option">
+          <div class="name">Drop-In</div>
+          <div class="hours">Weekdays<br/>8:30–9:30p (1h)</div>
+          <div class="classes">Basics Classes</div>
+          <div class="price"><del>$5 per drop-in*</del><br/><span class="extra">Free through September 5</span></div>
+          <div class="requirements"><del>limited to 3 drop-ins per semester</del><br/><span class="extra">Come anytime during the Free Trial</span></div>
+          <div class="action">
+            <a href="https://myrecreation.berkeley.edu/store/index.aspx?view=activity&Unit=32&Rsc=265" target="_blank">
+              Buy Drop-In<br/>in the Online Store
+            </a>
+          </div>
+        </div>
+
+        <div class="blue-team option">
+          <div class="name">Blue Team</div>
+          <div class="hours">Weekdays<br/>8:30–9:30p (1h)</div>
+          <div class="classes">Basics Classes</div>
+          <div class="price">$65 per semester*</div>
+          <div class="requirements">requires RSF membership</br>and club sign up</div>
+          <div class="action">
+            <a href="https://myrecreation.berkeley.edu/store/index.aspx?view=activity&Unit=32&Rsc=265" target="_blank">
+              Join Blue Team
+            </a>
+          </div>
+        </div>
+
+        <div class="gold-team option">
+          <div class="name">Gold Team</div>
+          <div class="hours">Weekdays<br/>8:30–11:30p (3h)<br/><span class="extra">Weekends</span></div>
+          <div class="classes">Basics Classes<br/>Competitive Classes</div>
+          <div class="price">$85 per semester*</div>
+          <div class="requirements">requires RSF membership,<br/>club sign up, volunteering,</br>team uniform and competing</div>
+          <div class="action">
+            <a href="https://myrecreation.berkeley.edu/store/index.aspx?view=activity&Unit=32&Rsc=265" target="_blank">
+              Join Gold Team
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cash-note">
+        *We do not accept cash. All payments must be done online <strong>before practice</strong>. No exceptions will be made.
+      </div>
+    </div>
+  </section>
+</article>
+
+<footer class="footer">
+  <nav class="content">
+    <div class="under-development">
+      Website is still under development. We apologize for any missing links and promise they will start working very shortly.
+    </div>
+
+    <div class="footer-links">
+      <ul class="footer-links-group">
+        <li>
+          <h3>Site Map</h3>
+        </li>
+        <li>
+          <a href="/">Home</a>
+        </li><li>
+          <a>Blue Team</a>
+        </li><li>
+          <a>Gold Team</a>
+        </li><li>
+          <a href="https://myrecreation.berkeley.edu/store/index.aspx?view=activity&Unit=32&Rsc=265" target="_blank">Online Store</a>
+        </li><li>
+          <a>Classes</a>
+        </li><li>
+          <a>News</a>
+        </li><li>
+          <a>About</a>
+        </li>
+      </ul>
+
+      <ul class="footer-links-group center">
+        <li>
+          <h3>Members Only Pages</h3>
+        </li>
+        <li>
+          <a target="_blank">Blue Team Members Page</a>
+        </li><li>
+        <a target="_blank">Gold Team Members Page</a>
+      </li><li>
+        <a href="http://officers.calgymnasticsclub.com" target="_blank">Club Officers Wiki</a>
+      </li>
+      </ul>
+
+      <ul class="footer-links-group center">
+        <li>
+          <h3>Affiliation</h3>
+        </li>
+        <li>
+          <a href="http://www.berkeley.edu">UC Berkeley</a>
+        <li>
+          <a href="http://www.naigc.net/index.php">NAIGC</a>
+        </li><li>
+          <a href="https://usagym.org">USA Gymnastics</a>
+        </li>
+      </ul>
+
+      <ul class="footer-links-group right">
+        <li>
+          <h3>Stay in Touch</h3>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/CalGymnasticsClub">Facebook Page</a>
+        </li><li>
+          <a href="https://www.youtube.com/user/calgymnasticsclub">YouTube Channel</a>
+        </li><li>
+          <script type="text/javascript">
+            <!--
+            // protected email script by Joe Maller
+            // JavaScripts available at http://www.joemaller.com
+            // this script is free to use and distribute
+            // but please credit me and/or link to my site
+
+            emailE='lists.berkeley.edu'
+            emailE=('gymnastics_club-join' + '@' + emailE)
+            document.write('<a href="mailto:' + emailE + '?subject=Join">Mailing List</a>')
+
+            //-->
+          </script>
+        </li><li></li><li>
+          <h3>Contact</h3>
+        </li><li>
+          <script type="text/javascript">
+            <!--
+            // protected email script by Joe Maller
+            // JavaScripts available at http://www.joemaller.com
+            // this script is free to use and distribute
+            // but please credit me and/or link to my site
+
+            emailE='gmail.com'
+            emailE=('calclubgymnastics' + '@' + emailE)
+            document.write('<a href="mailto:' + emailE + '">Email</a>')
+
+            //-->
+          </script>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</footer>
+
+</body>
+</html>

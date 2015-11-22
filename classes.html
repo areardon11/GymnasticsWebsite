@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cal Gymnastics Club</title>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <meta charset="UTF-8">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="general.js"></script>
+
+  <style>
+    .header {
+      height: 70px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <hgroup class="title in-header">
+    <img class="logo" src="cal.svg" />
+    <h1 class="name"><span class="cal">Cal </span>Gymnastics Club</h1>
+  </hgroup>
+
+  <nav class="navigation opaque">
+    <div class="content">
+      <ul class="main-pages">
+        <li class="home-link">
+          <a href="/" class="current">Home</a>
+          <ul class="sub-pages">
+            <li><a class="practice-link" href="#practice">Practice</a></li>
+            <li><a>Blue Team</a></li>
+            <li><a>Gold Team</a></li>
+            <li><a href="https://myrecreation.berkeley.edu/store/index.aspx?view=activity&Unit=32&Rsc=265" target="_blank">Online Store</a></li>
+          </ul>
+        </li><li>
+        <a>Classes</a>
+      </ul>
+      <ul class="main-pages right">
+        </li><li>
+        <a>News</a>
+      </li><li>
+        <a>About</a>
+      </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<div>
+
+<style>
+.schedule {
+  background: #B9D3B6;
+  color: #003262;
+  font-weight: 300;
+}
+
+.to-beginners {
+  width: 700px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+.to-beginners .address {
+  margin-top: 0;
+  font-weight: 400;
+}
+
+.to-beginners .signature {
+  text-align: right;
+  font-style: italic;
+}
+
+.schedule h2 {
+  font-weight: 300;
+}
+
+.schedule table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  border: 1px solid rgba(0,0,0,0.2);
+  color: black;
+  text-align: center;
+}
+
+.schedule table td {
+  background: white;
+}
+
+.schedule table th,
+.schedule table td {
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 5px;
+}
+
+.schedule table td a {
+  color: black;
+}
+
+.schedule table td a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.schedule table th a {
+  color: white;
+}
+
+.schedule table th a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.schedule .days th {
+  width: 15%;
+  font-weight: 400;
+}
+
+.schedule .half-width {
+  width: 7.5%;
+}
+
+.schedule .header-row th {
+  font-weight: 400;
+}
+
+.schedule .days th:first-of-type {
+  width: 25%;
+}
+
+.schedule .coach {
+  width: 12.5%;
+}
+
+.schedule .time {
+  width: 12.5%;
+}
+
+.schedule .data-row {
+  height: 70px;
+}
+
+.schedule .days {
+  background: #003262;
+  color: #FDB515;
+}
+
+.schedule .header-row {
+  background: #2D637F;
+  color: white;
+}
+
+.schedule .data-row td:first-child,
+.schedule .data-row td:nth-child(2) {
+  background: #C2B9A7;
+}
+
+.schedule .empty {
+  background: #eee;
+}
+
+.schedule .class-type {
+  display: block;
+  font-style: italic;
+  margin-top: 0.2em;
+}
+
+.schedule .class h3 {
+  font-weight: 400;
+}
+
+.basics {
+  background-color: #2D637F;
+}
+
+.content > h3 {
+  font-weight: 300;
+}
+
+.classes {
+  display: table;
+  margin-left: -50px;
+  margin-top: -50px;
+  width: 1100px;
+  border-collapse: separate;
+  border-spacing: 50px;
+}
+
+.class {
+  display: table-cell;
+  width: 50%;
+}
+
+.class h3 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.class .info {
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.coaches {
+  font-size: 16px;
+  display: table;
+  margin-left: -50px;
+  margin-top: -50px;
+  width: 1100px;
+  border-collapse: separate;
+  border-spacing: 50px;
+}
+
+.coaches .coach {
+  background: #00B2A5;
+  margin-bottom: 20px;
+  display: table-cell;
+  width: 50%;
+  vertical-align: top;
+}
+
+.coaches .coach.spacer {
+  background: none;
+}
+
+.coaches .coach::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.coaches .coach figure {
+  float: left;
+  width: 60%;
+  margin: 0px 20px 10px 0;
+}
+
+.coaches .coach figure.right {
+  float: right;
+  margin: 0px 0px 10px 20px;
+}
+
+.coaches .coach figure.full {
+  float: none;
+  width: 100%;
+  margin: 0px 0px 20px 0;
+}
+
+.coaches .coach figure.full-bottom {
+  float: none;
+  width: 100%;
+  margin: 0px 0px -3px 0;
+}
+
+.coaches .coach figure img,
+.coaches .coach figure video {
+  width: 100%;
+}
+
+.coaches .coach h3 {
+  font-weight: 400;
+  margin: 20px 20px 0;
+}
+
+.coaches .coach .info *:last-child {
+  padding-bottom: 20px;
+}
+
+.coaches .coach .hometown,
+.coaches .coach .position {
+  margin: 5px 20px 0;
+  font-style: italic;
+}
+
+.coaches .coach .description {
+  padding: 20px;
+}
+
+.competitive {
+  background: #FDB515;
+  color: #003262;
+}
+
+.competitive h2,
+.competitive h3 {
+  font-weight: 300;
+}
+
+.competitive .classes h3 {
+  font-weight: 400;
+}
+
+.competitive .coach {
+  background: #53626F;
+  color: white;
+}
+
+.services {
+  background: #00B0DA;
+
+}
+
+.services .coach {
+  background: #003262;
+  color: white;
+}
+
+.appointment {
+  position: relative;
+  display: block;
+  width: 70%;
+  vertical-align: middle;
+  padding: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 300;
+  text-transform: uppercase;
+  background-color: #2D637F;
+  border-radius: 5px;
+  transition: all 0.2s;
+  margin: 1em auto;
+  text-align: center;
+}
+
+a.appointment:hover {
+  top: -1px;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+  color: white;
+}
+
+</style>
+
+<article>
+
+<section class="schedule">
+  <div class="content">
+    <div class="to-beginners">
+    <h3 class="address">
+      To the beginners:
+    </h3>
+      <p>
+        A lot of members of our club have started their gymnastics journey as adults in their student years.
+        We find it very rewarding to see anyone gain confidence with their body and themselves by learning gymnastics, especially in a setting which also cultivates friendship and teamwork.</p>
+      <p>To create the environment where you can grow together with your peers, we’ve prepared the best set of
+      classes yet. Come and join the fun that is gymnastics!
+    </p>
+    <p class="signature">
+      — Volunteer coaches at Cal Gymnastics Club
+    </p>
+    </div>
+    <h2>
+      <a class="anchor padding" id="schedule"></a>
+      Schedule</h2>
+    <table>
+      <tr class="days">
+        <th colspan="2"></th>
+        <th colspan="2">Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+      </tr>
+      <tr class="header-row">
+        <th colspan="2"><a href="#basics">Basics Classes</a></th>
+        <th colspan="6">Co-ed</th>
+      </tr>
+      <tr class="data-row">
+        <td class="coach">Beginners Coach</td>
+        <td class="time">8:30–9:30</td>
+        <td colspan="2" rowspan="2"><a href="#connor">Connor</a></td>
+        <td><a href="#eva">Eva</a></td>
+        <td><a href="#allie">Allie</a></td>
+        <td><a href="#seanl">Sean L.</a></td>
+        <td><a href="#sheelah">Sheelah</a><span class="class-type">Conditioning</span></td>
+      </tr>
+      <tr class="data-row">
+        <td>Intermediate Coach</td>
+        <td>8:30–9:30</td>
+        <td><a href="#damon">Damon</a></td>
+        <td><a href="#seanc">Sean C.</a></td>
+        <td><a href="#sarah">Sarah</a></td>
+        <td><a href="#matej">Matej</a><div class="class-type">Handstands</div></td>
+      </tr>
+      <tr class="header-row">
+        <th colspan="2"><a href="competitive">Competitive Classes</a></th>
+        <th class="half-width">Men</th>
+        <th class="half-width">Women</th>
+        <th colspan="4"></th>
+      </tr>
+      <tr class="data-row">
+        <td>Beginners & Intermediate Coach</td>
+        <td>8:30-11:00</td>
+        <td><a href="#vinh">Vinh</a></td>
+        <td><a href="#sarah">Sarah</a></td>
+        <td colspan="4" rowspan="2" class="empty">Open practice</td>
+      </tr>
+      <tr class="data-row">
+        <td>Advanced Coach</td>
+        <td>8:30–11:00</td>
+        <td>Justin</td>
+        <td>TBD</td>
+      </tr>
+      <tr class="header-row">
+        <th colspan="2">Other Services</th>
+        <th colspan="6"></th>
+      </tr>
+      <tr class="data-row">
+        <td><a href="#sportadvising">Sport Advising</a></td>
+        <td>8:30-9:30</td>
+        <td colspan="2" rowspan="2" class="empty">Competitive classes in session</td>
+        <td class="empty"></td>
+        <td><a href="#julie">Julie</a></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+      </tr>
+      <tr class="data-row">
+        <td><a href="#privatelessons">Private Lessons</a></td>
+        <td>8:30–9:30</td>
+        <td><a href="#julie">Julie</a>,<br/><a href="#hannah">Hannah</a>,<br/><a href="#seanc">Sean C.</a></td>
+        <td><a href="#damon">Damon</a></td>
+        <td><a href="#julie">Julie</a>,<br/><a href="#hannah">Hannah</a>,<br/><a href="#seanc">Sean C.</a></td>
+        <td><a href="#julie">Julie</a>, <a href="#hannah">Hannah</a>,<br/><a href="#seanc">Sean C.</a>, <a href="#damon">Damon</a></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section class="basics">
+  <a class="anchor" id="basics"></a>
+  <div class="content">
+    <h2>Basics</h2>
+    <div class="classes">
+      <div class="class">
+        <h3>Beginners Classes</h3>
+        <div class="info">
+          1h, Monday–Friday, Everyone
+        </div>
+        <div class="description">
+          This class is for Blue or Gold Team members who would like to work
+          on their basic skills. This includes first time gymnasts and those
+          with more experience that want to solidify their foundation before
+          they move to advanced skills.
+        </div>
+      </div>
+      <div class="class">
+        <h3>Intermediate Classes</h3>
+        <div class="info">
+          1h, Monday–Friday, Everyone
+        </div>
+        <div class="description">
+          This class is for Blue or Gold Team members who are ready to move
+          beyond initial basic skills of the sport. This generally means that
+          they are able to proficiently preform some basic A level skills on
+          the events they are training (can do good round-offs, handstands,
+          and front or back tucks on tumble track).
+        </div>
+      </div>
+    </div>
+
+    <h3>Coaches</h3>
+
+    <div class="coaches">
+      <div class="coach">
+        <a class="anchor padding" id="eva"></a>
+        <figure>
+          <img src="https://31.media.tumblr.com/4e6f8be98830570eef1cb9dd45e636d8/tumblr_inline_nauzbg2WTr1qcsurn.jpg" />
+        </figure>
+        <div class="info">
+          <h3>Eva Thomas</h3>
+          <div class="hometown">Iowa City, IA</div>
+          <div class="description">
+            Eva has been competing in gymnastics for the last six years, first in the Junior Olympic program up through Level 7, then for Cal Club Gymnastics. She also currently teaches the club's beginner class on Tuesdays. Her strengths are on the uneven bars and balance beam, particularly in the areas of dance, flexibility, and static holds. Outside of gymnastics she also has experience in competitive figure skating, many styles of dance, and circus.
+          </div>
+        </div>
+      </div>
+
+      <div class="coach">
+        <a class="anchor padding" id="seanc"></a>
+        <figure class="right">
+          <img src="https://31.media.tumblr.com/860322a376654df3532b2e5944ac90ac/tumblr_inline_nauzbuvRI71qcsurn.jpg"/>
+        </figure>
+        <div class="info">
+          <h3>Sean Chilelli</h3>
+          <div class="hometown">Denver, CO</div>
+          <div class="description">
+            Sean has been doing gymnastics his entire life and competitively for fifteen years. He has been coaching for the past six years and loves helping newcomers learn the sport. He is comfortable coaching all gymnastics levels and events (except maybe beam) and specializes the men's events and strength training. My favorite individuals skills to teach to beginners are round offs, front and back flips, and the basics on all the men's events.
+          </div>
+        </div>
+      </div>
+
+      </div><div class="coaches">
+
+    <div class="coach">
+      <a class="anchor padding" id="sarah"></a>
+      <figure>
+        <img src="https://31.media.tumblr.com/ce0526ad391bb4696e86166d6503d6bf/tumblr_inline_nauzbn0El41qcsurn.jpg" />
+      </figure>
+      <div class="info">
+        <h3>Sarah Curiel</h3>
+        <div class="description">
+          Hi! I'm Sarah and I have been doing gymnastics for the past nine years and coaching for six. I competed up through level 9 before college, and joined the club team when I started Cal. I've coached all levels of recreational gymnastics/summer camps as well as competitive gymnastics on occasion. I have also been the women's team captain of the club team for three years, so feel free to ask me any questions! I have been coaching classes for the club team for three years and have had all skill levels, from complete beginners to more advanced with gymnastics experience. I am always willing to help with any skills or events, but most frequently I coach tumbling such as round-offs, front and back handsprings, and front and back flips. Hope to see you around the gym :) Go Bears!
+        </div>
+      </div>
+    </div>
+
+      <div class="coach">
+        <a class="anchor padding" id="matej"></a>
+        <figure class="full">
+          <video loop autoplay muted>
+            <source type="video/webm" src="http://100-videos.s3.amazonaws.com/7ff8efa6-7758-433e-8a6f-e46f164bcbbf/cbb0c962-66f6-4802-ac89-89091404f379-low.webm">
+            <source type="video/mp4" src="http://100-videos.s3.amazonaws.com/7ff8efa6-7758-433e-8a6f-e46f164bcbbf/cbb0c962-66f6-4802-ac89-89091404f379-low.mp4">
+          </video>
+        </figure>
+        <div class="info">
+          <h3>Matej Jan</h3>
+          <div class="hometown">Slovenia, Europe</div>
+          <div class="description">
+            Matej has tried out a lot of sports from rollerblading and skateboarding to breakdance and hip-hop. At 30 years old and two years into gymnastics practice he's determined to prove that it's never too late to start something new and inspire others to follow their dreams, no matter the age. While he doesn't have previous coaching experience, he looks forward to make up for it with lots of enthusiasm and positive energy in his first class on handstands and form.
+          </div>
+        </div>
+      </div>
+  </div>
+
+    <div class="coaches">
+
+
+      <div class="coach">
+        <a class="anchor padding" id="damon"></a>
+        <figure class="full">
+          <img src="https://31.media.tumblr.com/4a0afe686e143fda27c513eb0dbf462c/tumblr_inline_nb1s33X8a11qcsurn.jpg" />
+        </figure>
+        <div class="info">
+          <h3>Damon Laguna</h3>
+          <div class="description">
+            Hi, I'm Damon Laguna and I am a second year and intended business/ film double major. I have been competing in gymnastics since I was six and recently placed 10th at the NAIGC National Championship on the Pommel Horse. I have also coached gymnastics for three years prior to coming to Cal at Victory Gymnastics Academy in Southern California. I really enjoy coaching the men's six events but have a lot of experience coaching many different levels on every gymnastics event.          </div>
+        </div>
+      </div>
+
+
+      <div class="coach">
+        <a class="anchor padding" id="allie"></a>
+        <div class="info">
+          <h3>Allie Snyder</h3>
+          <div class="description">
+            Hello Fellow Flippers! My name is Allie Snyder and I am the current Vice President of the Cal Gymnastics Club. I started gymnastics when I was three and competed dance/tumbling routines up until I was ten. I came to the Club in January 2014 and competed at the NAIGC Nationals that April. I will be coaching the blue team beginner’s class on Wednesdays. I look forward to this next year of learning even more gymnastic skills!            </div>
+        </div>
+        <figure class="full-bottom">
+          <img src="https://31.media.tumblr.com/9845221c75e08c32f5991b74ed5e8503/tumblr_inline_nb1s1f9qOZ1qcsurn.jpg" />
+        </figure>
+      </div>
+
+    </div>
+
+    <div class="coaches">
+
+      <div class="coach">
+        <a class="anchor padding" id="connor"></a>
+        <figure>
+          <img src="https://31.media.tumblr.com/1f573b2d4495267cab9abb50af246171/tumblr_inline_nb1s2e7bYI1qcsurn.jpg" />
+        </figure>
+        <div class="info">
+          <h3>Connor Capestany</h3>
+          <div class="description">
+            Hey all, I'm Connor and I've been doing gymnastics for about four years now. I actually started doing gymnastics at the club and grew to like it immensely. I have also been coaching kids as a job for the past year. I would say my strengths in coaching are basic to intermediate tumbling, uneven bars, beam, and vault. I don't have a lot of experience teaching the mens' events, but I do know enough to give basic instruction on all of them. My favorite skills to teach are back tucks (back flips), front tucks (front flips), and handsprings. I also know how to spot these skills so don't be afraid to ask for help!
+          </div>
+        </div>
+      </div>
+
+      <div class="coach">
+        <a class="anchor padding" id="seanl"></a>
+        <figure class="right">
+          <img src="https://31.media.tumblr.com/83c08cb812bd7dc6d7160337920bc430/tumblr_inline_nb1s41kGYB1qcsurn.jpg" />
+        </figure>
+        <div class="info">
+          <h3>Sean Lail</h3>
+          <div class="description">
+            Hi! I’m Sean and I have been doing gymnastics, in some form or another, for my entire life. From couch gymnastics as a child, to boys team as an adolescent, and Cal Club Team member as an adult, I’ve done it all! As for coaching, I have 10 years under my belt of coaching all levels or recreational gymnastics as well as team and club gymnastics. I have been a part of the Cal Club Team, volunteer coaching and competing, for the past three years. My specialty is Floor and Vault and so naturally, my coaching strengths are teaching intermediate/advanced tumbling and vaulting. No need to worry though,  I am knowledgeable and capable of teaching any other apparatus too so don’t hesitate to stop me and  ask for help!! See you around        </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="coaches">
+
+      <div class="coach">
+        <a class="anchor padding" id="sheelah"></a>
+        <figure class="full">
+          <img src="https://31.media.tumblr.com/e3ea7d7878a812d895c45578a02027ba/tumblr_inline_nb1s4kxqBt1qcsurn.jpg" />
+        </figure>
+        <div class="info">
+          <h3>Sheelah Barefoot</h3>
+          <div class="description">
+            I started Gold Team in Fall 2012 and have been conditioning and competing with our team since then. While I did not start gymnastics until college, I truly love the sport and understand what it’s like to come in with limited experience. I look forward to teaching you!          </div>
+        </div>
+      </div>
+
+
+      <div class="coach spacer">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="competitive">
+  <a class="anchor" id="competitive"></a>
+  <div class="content">
+    <h2>Competitive Classes</h2>
+    <div class="classes">
+      <div class="class">
+        <h3>Beginners/Intermediate</h3>
+        <div class="info">
+          2.5h, Mondays, Gold Team only
+        </div>
+        <div class="description">
+          This class is for Gold Team members that want to prepare for competing on men’s or women’s event and develop initial skills. Attendees are split by gender they want to compete for (men are allowed to compete women’s events and vice versa) and we have one coach for each gender.
+        </div>
+      </div>
+      <div class="class">
+        <h3>Advanced</h3>
+        <div class="info">
+          2.5h, Mondays, Gold Team only
+        </div>
+        <div class="description">
+          This is the most experienced class and is for Gold Team members that have at least two B level skills on the event being trained. Class is split by desired gender and each get their own coach.
+        </div>
+      </div>
+    </div>
+
+    <h3>Coaches</h3>
+
+    <div class="coaches">
+
+    <div class="coach">
+      <a class="anchor padding" id="vinh"></a>
+      <figure class="full">
+        <img src="https://31.media.tumblr.com/9e70192a7417fef38b5ad74d114496b6/tumblr_inline_nauzbzoxxW1qcsurn.jpg">
+      </figure>
+      <div class="info">
+        <h3>Vinh Nguyen</h3>
+        <div class="position">Men's Beginners/Intermediate Coach</div>
+      </div>
+    </div>
+
+  <div class="coach">
+    <figure class="full">
+      <img src="https://31.media.tumblr.com/ce0526ad391bb4696e86166d6503d6bf/tumblr_inline_nauzbn0El41qcsurn.jpg" />
+    </figure>
+    <div class="info">
+      <h3>Sarah Curiel</h3>
+      <div class="position">Women's Beginner/Intermediate Coach</div>
+    </div>
+  </div>
+
+  </div>
+
+  </div>
+</section>
+
+<section class="services">
+  <a class="anchor" id="sportadvising"></a>
+  <a class="anchor" id="privatelessons"></a>
+  <div class="content">
+    <h2>Other Services</h2>
+
+    <div class="classes">
+      <div class="class">
+        <h3>Sport Advising</h3>
+        <div class="info">
+          1h, 8:30–9:30, Wednesdays, by appointment, free
+        </div>
+        <div class="description">
+         Do you have questions about your practice? Want to know how to treat an injury? What kind of conditioning you should do or maybe you just wonder about nutrition that goes well with gymnastics practice. Make an appointment to chat with our sports adviser <a href="#julie">Julie</a> and tap into her many years of practice and coaching experience.
+        </div>
+        <a class="appointment" href="https://myrecreation.berkeley.edu/store/index.aspx?view=activity&Unit=32&Rsc=265" target="_blank">
+          Make an appointment for<br/>sport advising
+        </a>
+      </div>
+
+      <div class="class">
+        <h3>Private Lessons</h3>
+        <div class="info">
+          1h, 8:30–9:30, Tuesday–Friday, by appointment<br/>
+          $40 (+ $20 for additional person)
+        </div>
+        <div class="description">
+          Want to work one on one with our best gymnasts on the team? Get personalized direction, advice and corrections for any event you want. We'll match you with one of our most experienced members with years of coaching experience. Ask as about routine choreography too.
+        </div>
+        <a class="appointment" href="https://myrecreation.berkeley.edu/store/index.aspx?view=activity&Unit=32&Rsc=265" target="_blank">
+          Make an appointment for<br/>private lessons
+        </a>
+      </div>
+    </div>
+
+    <h3>Private Coaches</h3>
+
+    <div class="coaches">
+      <div class="coach">
+        <a class="anchor padding" id="julie"></a>
+        <figure class="full">
+          <img src="https://31.media.tumblr.com/3c173d08f331bb51511b612014666a78/tumblr_inline_nb31cznpFS1qcsurn.jpg" />
+        </figure>
+        <div class="info">
+          <h3>Julie Rolla</h3>
+          <div class="position">Sport Advising, Choreography, Floor, Vault</div>
+          <div class="description">
+            Julie Rolla has been doing gymnastics for fourteen years and has coached for over six years for both Golden Bear's JO program and for the club. Julie has been helping in the club for many years as an officer and has attend NAIGC nationals for the past five seasons. She has taught all levels of gymnasts from recreational classes to competitive optional team. In addition, for the past four years she has coached beginners classes, private lessons and conditioning classes for the club. She has taken some classes in sports injury and medicine, which combined with years of experience has made her knowledgeable in physical therapy and injury prevention. Furthermore, she has experience in routine choreography for around ten years and has been the main club choreographer for the past four seasons.
+          </div>
+        </div>
+      </div>
+
+      <div class="coach">
+        <figure class="full">
+          <img src="https://31.media.tumblr.com/860322a376654df3532b2e5944ac90ac/tumblr_inline_nauzbuvRI71qcsurn.jpg"/>
+        </figure>
+        <div class="info">
+          <h3>Sean Chilelli</h3>
+          <div class="position">Floor, Vault, High Bar, Pommel Horse, Parallel Bars, Rings</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="coaches">
+
+      <div class="coach">
+        <figure class="full">
+          <img src="https://31.media.tumblr.com/4a0afe686e143fda27c513eb0dbf462c/tumblr_inline_nb1s33X8a11qcsurn.jpg" />
+        </figure>
+        <div class="info">
+          <h3>Damon Laguna</h3>
+          <div class="position">Pommel Horse, Rings, Parallel Bars</div>
+        </div>
+      </div>
+
+      <div class="coach">
+        <a class="anchor padding" id="hannah"></a>
+        <figure class="full">
+          <img src="https://31.media.tumblr.com/acb47d2897d22f6eae2fbcfadfacaf3c/tumblr_inline_nb5nthD5LZ1qcsurn.jpg" />
+        </figure>
+        <div class="info">
+          <h3>Hannah Holat</h3>
+          <div class="position">Choreography, Floor, Vault, Beam, Uneven Bars</div>
+          <div class="description">
+            Hannah Holat is a third year Nutritional Sciences major at UC Berkeley, and has been a competitive gymnast for 13 years. She is a member and officer of the Cal Gymnastics Club, and has a true passion for training, competing, and improving daily in gymnastics. She has coached both kids and adults gymnastics classes for 3 years at Golden Bear Gymnastics and West Coast Elite Gymnastics, and really enjoys helping others push their limits, learn new skills, and realize that gymnastics is the most rewarding and exciting sport there is!
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+</article>
+</div>
+
+<footer class="footer">
+  <nav class="content">
+    <div class="under-development">
+      Website is still under development. We apologize for any missing links and promise they will start working very shortly.
+    </div>
+
+    <div class="footer-links">
+      <ul class="footer-links-group">
+        <li>
+          <h3>Site Map</h3>
+        </li>
+        <li>
+          <a href="/">Home</a>
+        </li><li>
+        <a>Blue Team</a>
+      </li><li>
+        <a>Gold Team</a>
+      </li><li>
+        <a href="https://myrecreation.berkeley.edu/store/index.aspx?view=activity&Unit=32&Rsc=265" target="_blank">Online Store</a>
+      </li><li>
+        <a>Classes</a>
+      </li><li>
+        <a>News</a>
+      </li><li>
+        <a>About</a>
+      </li>
+      </ul>
+
+      <ul class="footer-links-group center">
+        <li>
+          <h3>Members Only Pages</h3>
+        </li>
+        <li>
+          <a target="_blank">Blue Team Members Page</a>
+        </li><li>
+        <a target="_blank">Gold Team Members Page</a>
+      </li><li>
+        <a href="http://officers.calgymnasticsclub.com" target="_blank">Club Officers Wiki</a>
+      </li>
+      </ul>
+
+      <ul class="footer-links-group center">
+        <li>
+          <h3>Affiliation</h3>
+        </li>
+        <li>
+          <a href="http://www.berkeley.edu">UC Berkeley</a>
+        <li>
+          <a href="http://www.naigc.net/index.php">NAIGC</a>
+        </li><li>
+        <a href="https://usagym.org">USA Gymnastics</a>
+      </li>
+      </ul>
+
+      <ul class="footer-links-group right">
+        <li>
+          <h3>Stay in Touch</h3>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/CalGymnasticsClub">Facebook Page</a>
+        </li><li>
+        <a href="https://www.youtube.com/user/calgymnasticsclub">YouTube Channel</a>
+      </li><li>
+        <script type="text/javascript">
+          <!--
+          // protected email script by Joe Maller
+          // JavaScripts available at http://www.joemaller.com
+          // this script is free to use and distribute
+          // but please credit me and/or link to my site
+
+          emailE='lists.berkeley.edu'
+          emailE=('gymnastics_club-join' + '@' + emailE)
+          document.write('<a href="mailto:' + emailE + '?subject=Join">Mailing List</a>')
+
+          //-->
+        </script>
+      </li><li></li><li>
+        <h3>Contact</h3>
+      </li><li>
+        <script type="text/javascript">
+          <!--
+          // protected email script by Joe Maller
+          // JavaScripts available at http://www.joemaller.com
+          // this script is free to use and distribute
+          // but please credit me and/or link to my site
+
+          emailE='gmail.com'
+          emailE=('calclubgymnastics' + '@' + emailE)
+          document.write('<a href="mailto:' + emailE + '">Email</a>')
+
+          //-->
+        </script>
+      </li>
+      </ul>
+    </div>
+  </nav>
+</footer>
+
+</body>
+</html>
