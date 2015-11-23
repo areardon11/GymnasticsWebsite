@@ -1,12 +1,56 @@
+<!-- This file is the old goldteam.html  The file is poorly named, it served a different purpose earlier and I need to learn how to use github better.  It has nice spacing unlike the current file, but the formatting is messed up.  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cal Gymnastics Club</title>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <meta charset="UTF-8">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="general.js"></script>
+
+  <style>
+    .header {
+      height: 70px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <hgroup class="title in-header">
+    <img class="logo" src="cal.svg" />
+    <h1 class="name"><span class="cal">Cal </span>Gymnastics Club</h1>
+  </hgroup>
+
+  <nav class="navigation opaque">
+    <div class="content">
+      <ul class="main-pages">
+        <li class="home-link">
+          <a href="/" class="current">Home</a>
+          <ul class="sub-pages">
+            <li><a class="practice-link" href="#practice">Practice</a></li>
+            <li><a>Blue Team</a></li>
+            <li><a>Gold Team</a></li>
+            <li><a href="https://myrecreation.berkeley.edu/store/index.aspx?view=activity&Unit=32&Rsc=265" target="_blank">Online Store</a></li>
+          </ul>
+        </li><li>
+        <a>Classes</a>
+      </ul>
+      <ul class="main-pages right">
+        </li><li>
+        <a>News</a>
+      </li><li>
+        <a>About</a>
+      </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
 <div>
 
 <style>
-.posts, .post {
-width: 100%;
-margin: 0;
-padding: 0;
-}
-
 article {
   background: #FDB515;
   color: #003262;
@@ -123,55 +167,179 @@ article a[href]:hover {
   width: 100%;
 }
 
-</style><article><div class="content">
-<h2>Gold Team</h2>
-<p>Gold Team is our competitive team that represents Cal Gymnastics Club at regional and national competitions. The great thing about it is that it is open to everyone at all skill levels, even if you’ve never done gymnastics before. All you need is the desire to learn gymnastics, make friends and have fun with our flipping family.</p>
-<div class="photoset"><img src="https://40.media.tumblr.com/205649a80fc4793054d565f00788433d/tumblr_nnp0dhJhcr1tjhjyco3_1280.jpg"/></div>
+</style>
+
+<article>
+
+<section class="blue-team">
+  <div class="content">
+    <h2>Gold Team</h2>
+    <p>Gold Team is our competitive team that represents Cal Gymnastics Club at regional and national competitions.
+      The great thing about it is that it is open to everyone at all skill levels, even if you've never done gymnastics before.
+    All you need is the desire to learn gymnastics, make friends and have fun with our flipping family.</p>
+
+    <div class="photoset">
+      <img src="https://33.media.tumblr.com/85e9de6f4602bfd25f314fb8a1bdeffb/tumblr_nb5t10BN0o1tjhjyco1_1280.jpg"/>
+    </div>
+
+      <h3>Practice Times</h3>
+      <p class="hours">Monday–Friday, 8:30–11:30p<br/>Weekends by announcement</p>
+      <p><span class="days">Mondays</span>: <a href="classes/#schedule">competitive class</a> only<br/>
+        <span class="days">Tuesdays–Fridays</span>: <a href="classes/#schedule">basics class</a> or free practice*<br/>
+    Weekends</span>: free practice</p>
+    <p class="smallprint">* We do not offer an open gym format. All practice must be exclusively artistic gymnastics.</p>
+
+
+    <h3>Requirements</h3>
+    <aside class="extra-info">
+      <h4>About the Cal Rec Club Membership</h4>
+      <p>Cal Recreational Sports Club membership (often called the RSF membership after the Recreational Sports Facility)
+        gives you access to UC Berkeley's recreational facilities, drop-in classes, sport teams and clubs.</p>
+      <p>Membership for students is $10 per semester with lots of options for associated students, faculty and staff, alumni and the general community.</p>
+      <p>To learn more about membership types, please visit <a href="http://recsports.berkeley.edu/about/member-services/membership-types/">Rec Sports' membership page</a>.</p>
+    </aside>
+    <ol class="requirements">
+      <li>
+        <h4>Before practice</h4>
+        <ul>
+          <li>Cal Rec Club (RSF) Membership <div class="info">various options available</div></li>
+          <li>Gold Team Dues <div class="info">$85 per semester ($55 Summer) or $20 transition*</div></li>
+          <li>Online Club Sign Up <div class="info">$0 item in online store, valid June 2014–June 2015</div></li>
+          <li>Buy the team uniform <div class="info">Uniform deposit is $160 for men, $100 for women</div></li>
+        </ul>
+        <a class="buy" href="/store" target="_blank">
+          Pay Gold Team dues<br/>in the Online Store
+        </a>
+        <p class="important">
+          We do not accept cash. All payments must be done online <strong>before practice</strong>. No exceptions will be made.
+        </p>
+        <p class="important smallprint">
+          Make sure to add the <em><strong>SC Gymnastics Club Sign-Up</strong></em> item to your cart. It will prompt you to agree to RSF waivers and code of conduct as well
+          as fill out your emergency contact. You have to have these forms completed before practice or you will have to do it online at the gym. Again, we can make no exceptions.
+        </p>
+        <p class="important smallprint">
+          *Transition option is available to people who have already paid Blue Team dues for that semester and for
+          the following two groups: Cal Gymnastics Club officers and Golden Bear Rec Center employees.
+        </p>
+      </li>
+      <li>
+        <h4>At first practice</h4>
+        <ul>
+          <li>Bring proof of payment <div class="info">You can show the email confirmation on your phone or printed out.</div></li>
+          <li>Sign Waiver of Liability and Gold Team Code of Conduct <div class="info">This agrees to Cal Gymnastics Club rules and you will sign it in person. It is not the same as the online club sign up.</div></li>
+        </ul>
+      </li>
+      <li>
+        <h4>During the academic year</h4>
+        <ul>
+          <li>Compete a minimum of one meet</li>
+          <li>Fulfill a minimum of 11 hours of fundraisers or 2.5 full Parent’s Night Out fundraisers <div class="info">If membership began at the start of a spring term, 5.5 hours of fundraising or one full PNO must be achieved.</div></li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</section>
+
+</article>
 </div>
-<div class="content">
-<h3>Practice Times</h3>
-<p class="hours">Monday–Friday, 8:30–11:30p<br/>Weekends by announcement</p>
-<p><span class="days">Tuesday</span>: <a href="/classes/#competitive">coached practice</a> only<br/><span class="days">Monday and Wednesday–Friday</span>: <a href="/classes/#basics">basics class</a> or open practice*<br/> Weekends: open practice*</p>
-<p class="smallprint">* We do not offer an open gym format. All practice must be exclusively artistic gymnastics.</p>
-<h3>Requirements</h3>
-<aside class="extra-info"><h4>About the Cal Rec Club Membership</h4>
-<p>Cal Recreational Sports Club membership (often called the RSF membership after the Recreational Sports Facility) gives you access to UC Berkeley’s recreational facilities, drop-in classes, sport teams and clubs.</p>
-<p>Membership for students is $10 per semester with lots of options for associated students, faculty and staff, alumni and the general community.</p>
-<p>To learn more about membership types, please visit <a href="http://recsports.berkeley.edu/about/member-services/membership-types/">Rec Sports’ membership page</a>.</p>
-</aside><ol class="requirements"><li>
-<h4>Before practice</h4>
-<ul><li>Cal Rec Club (RSF) Membership
-<div class="info">various options available</div>
-</li>
-<li>Gold Team Dues
-<div class="info">$90 per semester ($55 Summer) or $20 transition*</div>
-</li>
-<li>Online Club Sign Up
-<div class="info">$0 item in online store, valid June 2014–June 2015</div>
-</li>
-<li>Buy the team uniform
-<div class="info">Uniform deposit is $160 for men, $100 for women</div>
-</li>
-</ul><a class="buy" href="/store" target="_blank"> Pay Gold Team dues<br/>in the Online Store </a>
-<p class="important">We do not accept cash. All payments must be done online <strong>before practice</strong>. No exceptions will be made.</p>
-<p class="important smallprint">Make sure to add the <em><strong>SC Gymnastics Club Sign-Up</strong></em> item to your cart. It will prompt you to agree to RSF waivers and code of conduct as well as fill out your emergency contact. You have to have these forms completed before practice or you will have to do it online at the gym. Again, we can make no exceptions.</p>
-<p class="important smallprint">*Transition option is available to people who have already paid Blue Team dues for that semester and for the following two groups: Cal Gymnastics Club officers and Golden Bear Rec Center employees.</p>
-</li>
-<li>
-<h4>At first practice</h4>
-<ul><li>Bring proof of payment
-<div class="info">You can show the email confirmation on your phone or printed out.</div>
-</li>
-<li>Sign Waiver of Liability and Gold Team Code of Conduct
-<div class="info">This agrees to Cal Gymnastics Club rules and you will sign it in person. It is not the same as the online club sign up.</div>
-</li>
-</ul></li>
-<li>
-<h4>During the academic year</h4>
-<ul><li>Compete a minimum of one meet</li>
-<li>Fulfill a minimum of 12 hours of fundraisers or 2.5 full Parent’s Night Out fundraisers
-<div class="info">If membership began at the start of a spring term, 6 hours of fundraising or one full PNO must be achieved.</div>
-</li>
-</ul></li>
-</ol></div>
-</article></div>
+
+<footer class="footer">
+  <nav class="content">
+    <div class="under-development">
+      Website is still under development. We apologize for any missing links and promise they will start working very shortly.
+    </div>
+
+    <div class="footer-links">
+      <ul class="footer-links-group">
+        <li>
+          <h3>Site Map</h3>
+        </li>
+        <li>
+          <a href="/">Home</a>
+        </li><li>
+        <a>Blue Team</a>
+      </li><li>
+        <a>Gold Team</a>
+      </li><li>
+        <a href="https://myrecreation.berkeley.edu/store/index.aspx?view=activity&Unit=32&Rsc=265" target="_blank">Online Store</a>
+      </li><li>
+        <a>Classes</a>
+      </li><li>
+        <a>News</a>
+      </li><li>
+        <a>About</a>
+      </li>
+      </ul>
+
+      <ul class="footer-links-group center">
+        <li>
+          <h3>Members Only Pages</h3>
+        </li>
+        <li>
+          <a target="_blank">Blue Team Members Page</a>
+        </li><li>
+        <a target="_blank">Gold Team Members Page</a>
+      </li><li>
+        <a href="http://officers.calgymnasticsclub.com" target="_blank">Club Officers Wiki</a>
+      </li>
+      </ul>
+
+      <ul class="footer-links-group center">
+        <li>
+          <h3>Affiliation</h3>
+        </li>
+        <li>
+          <a href="http://www.berkeley.edu">UC Berkeley</a>
+        <li>
+          <a href="http://www.naigc.net/index.php">NAIGC</a>
+        </li><li>
+        <a href="https://usagym.org">USA Gymnastics</a>
+      </li>
+      </ul>
+
+      <ul class="footer-links-group right">
+        <li>
+          <h3>Stay in Touch</h3>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/CalGymnasticsClub">Facebook Page</a>
+        </li><li>
+        <a href="https://www.youtube.com/user/calgymnasticsclub">YouTube Channel</a>
+      </li><li>
+        <script type="text/javascript">
+          <!--
+          // protected email script by Joe Maller
+          // JavaScripts available at http://www.joemaller.com
+          // this script is free to use and distribute
+          // but please credit me and/or link to my site
+
+          emailE='lists.berkeley.edu'
+          emailE=('gymnastics_club-join' + '@' + emailE)
+          document.write('<a href="mailto:' + emailE + '?subject=Join">Mailing List</a>')
+
+          //-->
+        </script>
+      </li><li></li><li>
+        <h3>Contact</h3>
+      </li><li>
+        <script type="text/javascript">
+          <!--
+          // protected email script by Joe Maller
+          // JavaScripts available at http://www.joemaller.com
+          // this script is free to use and distribute
+          // but please credit me and/or link to my site
+
+          emailE='gmail.com'
+          emailE=('calclubgymnastics' + '@' + emailE)
+          document.write('<a href="mailto:' + emailE + '">Email</a>')
+
+          //-->
+        </script>
+      </li>
+      </ul>
+    </div>
+  </nav>
+</footer>
+
+</body>
+</html>
