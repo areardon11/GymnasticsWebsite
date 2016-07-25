@@ -1,79 +1,848 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cal Gymnastics Club</title>
-  <link rel="stylesheet" href="style.css" type="text/css" />
+  <title>
+  {Title} 
+  {block:PostTitle} — {PostTitle}{/block:PostTitle} 
+  {block:TagPage} — {Tag}{/block:TagPage} 
+  </title>
   <meta charset="UTF-8">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="home.js"></script>
-  <script src="general.js"></script>
+  <script>
+      $(function() {
+  
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        var scroll = $(window).scrollTop();
+        var targetScroll = target.offset().top;
+        var time = Math.abs(targetScroll-scroll);
+        $('html,body').animate({
+          scrollTop: targetScroll
+        }, Math.min(time * 1.5, 1500));
+        return false;
+      }
+    }
+  });
+  
+      $('.hashtag-link').click(function(){
+        $('.sub-pages').addClass('unhover')
+      });
+      
+      $('.hashtag-link').mouseout(function(){
+        $('.sub-pages').removeClass('unhover')
+      })
+});
+  </script>
+  
+  <style>
+    @import url(http://fonts.googleapis.com/css?family=Lato:300,400,300italic);
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: "Lato";
+      font-weight: 300;
+      min-width: 1050px;
+      -webkit-font-smoothing: antialiased;
+      font-size: 18px;
+    }
+
+    .tumblr_controls {
+      top: auto !important;
+      bottom: 0 !important;
+    }
+    
+    a {
+      color: white;
+      text-decoration: none;
+      transition: all 0.1s;
+      cursor: default;
+    }
+    
+    a:hover {
+      color: #2D637F;
+    }
+    
+    a[href]:hover {
+      color: #FDB515;
+      cursor: pointer;
+    }
+    
+    article p a,
+    .post p a {
+  text-decoration: underline;
+}
+
+    .anchor {
+      position: relative;
+      display: block;
+      top: -70px;
+      visibility: hidden;
+    }
+    
+    .anchor.padding {
+      top: -90px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+    
+    strong {
+  font-weight: 400;
+}
+    
+    figure {
+        margin: 0;
+    }
+    
+    .content {
+      width: 1000px;
+      margin: 0 auto;
+      padding: 50px 0;
+    }
+    
+    .header {
+      position: relative;
+      width: 100%;
+    {block:IndexPage} 
+      height: 100%;
+    {/block:IndexPage}
+    {block:PermalinkPage} 
+      height: 70px;
+    {/block:PermalinkPage}
+      min-width: 1050px;
+    }
+    
+    {block:TagPage}
+    .header {
+      height: 70px !important;
+    }
+    {block:TagPage} 
+
+    
+    .title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      margin-left: -300px;
+      margin-top: -170px;
+      z-index: 10;
+      text-align: center;
+    }
+    
+    .title.in-header {
+      position: fixed;
+      top: 0;
+      margin-top: 0;
+      z-index: 20;
+      height: 70px;
+      padding: 10px;
+      width: 500px;
+      margin-left: -250px;
+    }
+    
+    .title.in-header .logo {
+      display: inline-block;
+      width: auto;
+      height: 50px;
+      vertical-align: middle;
+    }
+    
+    .title.in-header .name {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 30px;
+      margin: 0;
+    }
+    
+    .title.in-header .cal {
+      display: none;
+    }
+    
+    .title.in-header.slide-out {
+      top: -70px;
+    }
+    
+    .title .logo {
+      width: 200px;
+    }
+    
+    .title .name {
+      text-transform: uppercase;
+      text-shadow: 0 2px 10px black;
+      font-size: 50px;
+      font-weight: 300;
+      color: white;
+    }
+    
+    .navigation {
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      height: 70px;
+      z-index: 10;
+      background: rgba(0, 50, 98, 0);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0);
+      transition: all 0.2s;
+    }
+    
+    .navigation:hover,
+    .navigation.opaque {
+      background: #003262;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .navigation .content {
+      padding: 0;
+      width: 1040px;
+      max-width: 100%;
+    }
+    
+    .home.navigation a[href="/"] {
+      color: #FDB515;
+    }
+    
+    .Classes.navigation a[href="/classes"] {
+      color: #FDB515;
+    }
+    
+    .main-pages {
+      display: inline-block;
+      list-style: none;
+      height: 70px;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .main-pages.right {
+      float: right;
+    }
+    
+    .main-pages li {
+      display: inline-block;
+      position: relative;
+      height: 100%;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+    
+    .main-pages li a {
+      display: block;
+      padding: 20px;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .main-pages .sub-pages {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      padding: 0;
+      margin: 0;
+      top: 100%;
+      left: 0;
+      z-index: -1;
+      min-width: 200px;
+      background: rgba(0, 50, 98, 0);
+      transition: all 0.2s;
+    }
+    
+        .main-pages .sub-pages.right {
+            left: auto;
+            right: 0;
+            text-align: right;
+        }
+        
+    .navigation:hover .sub-pages,
+    .navigation.opaque .sub-pages {
+      background: #003262;
+    }
+    
+    .main-pages li:hover .sub-pages {
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    .main-pages li:hover .sub-pages.unhover {
+      visibility: hidden;
+      opacity: 0;
+    }
+    
+    .sub-pages li a {
+      display: block;
+      height: 50px;
+      padding: 10px 20px;
+      white-space: nowrap;
+    }
+    
+    .cover {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .cover .content {
+      position: absolute;
+      top: 70px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      width: auto;
+      margin: 0;
+      text-align: center;
+    }
+    
+    @keyframes scrollDownPulse {
+      from { opacity:1; }
+      to { opacity:0; }
+    }
+    
+    @-webkit-keyframes scrollDownPulse {
+      from { opacity:1; }
+      to { opacity:0; }
+    }
+    
+    .scroll-down {
+      position: absolute;
+      text-align: center;
+      z-index: 2;
+      text-transform: uppercase;
+      bottom: 20px;
+      left: 50%;
+      width: 50px;
+      margin-left: -25px;
+      font-size: 30px;
+      transform: scale(2,1);
+      -webkit-transform: scale(2,1);
+      text-decoration: none;
+      color: #FDB515;
+      transition: all 0.2s;
+    
+      animation-name: scrollDownPulse;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-duration: 1s;
+      animation-direction: alternate;
+    
+      -webkit-animation-name: scrollDownPulse;
+      -webkit-animation-timing-function: ease-in-out;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-direction: alternate;
+    }
+    
+    .scroll-down:hover {
+      color: white;
+      opacity: 1;
+      -webkit-animation-name: none;
+    }
+    
+    .cover .video-container {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      background: black;
+    }
+    
+    .cover .loading {
+        position: absolute;
+        top: 75%;
+        left: 0;
+        right: 0;
+        color: #FDB515;
+        text-align: center;
+        opacity: 0;
+        transition: all 20s 1s;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5em;
+    }
+    
+    .cover .loading.displayed {
+        opacity: 1;
+    }
+    
+    
+    .cover video {
+      position: absolute;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+    }
+    
+    body {
+      background-color: #003262;        
+    }
+    
+    .main-content {
+      font-size: 20px;
+      background: #2D637F;
+      color: white;
+      min-height: 50%;
+      padding: 1px 0;
+    }
+    
+    .Inspiration .main-content,
+    .inspiration .main-content{
+        background-color: #C2B9A7;
+        color: black;
+    }
+    
+    article section h2 {
+      text-transform: uppercase;
+      font-size: 30px;
+      font-weight: 300;
+    }
+    
+    article section h2:first-child {
+      margin-top: 0;
+    }
+    
+    .footer {
+      background-color: #003262;
+      color: white;
+    }
+    
+    .footer .content {
+      padding: 20px 0;
+    }
+    
+    .footer .under-development {
+      text-align: center;
+      color: #FDB515;
+      margin-bottom: 20px;
+    }
+    
+    .footer h3 {
+      font-weight: 400;
+      font-size: 18px;
+      margin: 0;
+    }
+    
+    .footer .footer-links {
+      display: table;
+      width: 100%;
+    }
+    
+    .footer-links-group {
+      display: table-cell;
+      list-style: none;
+      margin: 0;
+    }
+    
+    .footer-links-group.center {
+      text-align: center;
+    }
+    
+    .footer-links-group.right {
+      text-align: right;
+    }
+    
+    .footer-links-group li {
+      display: block;
+      height: 25px;
+    }
+    
+    .footer-links-group a {
+      padding: 5px 0;
+    }
+    
+    .footer-info {
+      display: table-cell;
+    }
+    
+    .tag-title {
+        display: none;
+        width: 1000px;
+        margin: 50px auto 10px;
+    }
+    
+    .Inspiration .daily-inspiration.tag-title,
+    .inspiration .daily-inspiration.tag-title {
+        display: block;
+    }
+
+    .news .club-news.tag-title,
+    .News .club-news.tag-title {
+        display: block;
+    }
+    
+    .posts {
+        width: 1000px;
+        margin: 0 auto;
+        padding: 50px 0;
+        list-style: none;
+    }
+    
+    .posts h3 {
+        text-align: left;
+        font-size: 23px;
+        font-weight: 400;
+    }
+    
+    .posts .post h2 {
+        font-size: 21px;
+        font-weight: 400;        
+    }
+    
+    {block:IndexPage}
+    .posts {
+        display: none;
+    }
+    {/block:IndexPage}   
+    
+    {block:TagPage} 
+    .posts {
+        display: block !important;
+    }
+    {block:TagPage} 
+    
+    
+    
+    .date {
+        font-weight: 300;
+        opacity: 0.5;
+        margin: 2em 0;
+    }
+    
+    .date:first-child {
+        margin-top: 0;
+    }
+    
+    .post {
+        width: 700px;
+        margin: 0 auto 5em;
+        font-size: 18px;
+    }
+    
+    .post li {
+        margin-bottom: 0.5em;
+    }
+
+   
+   .post.photo img {
+       width: 100%;
+       margin: 0 auto;
+       display: block;
+   }
+   
+   .post.text img {
+       display: block;
+       margin: 0.5em auto;
+   }
+   
+   .post.text video {
+       max-width: 500px;
+       margin: 0.5em auto;
+       display: block;
+   }
+   
+  </style>
 </head>
-<body>
+<body {block:TagPage} class="{Tag}"{/block:TagPage} >
 
 <header class="header">
   <hgroup class="title in-header">
-    <img class="logo" src="cal.svg" />
+    <img class="logo" src="http://static.tumblr.com/twhmeyj/Koqnatnns/cal.svg" />
     <h1 class="name"><span class="cal">Cal </span>Gymnastics Club</h1>
   </hgroup>
 
-  <nav class="navigation">
+  <nav class="navigation {block:PermalinkPage}
+        opaque 
+        {block:PostTitle}
+            {PostTitle}
+        {/block:PostTitle} 
+    {/block:PermalinkPage} 
+    
+        {block:TagPage} 
+      opaque
+    {block:TagPage} 
+
+    {block:IndexPage}
+        home
+    {block:IndexPage}
+    ">
     <div class="content">
       <ul class="main-pages">
         <li class="home-link">
           <a href="/" class="current">Home</a>
           <ul class="sub-pages">
-            <li><a class="practice-link" href="#practice">Practice</a></li>
-            <li><a>Blue Team</a></li>
-            <li><a>Gold Team</a></li>
-            <li><a href="https://myrecreation.berkeley.edu/store/index.aspx?view=activity&Unit=32&Rsc=265" target="_blank">Online Store</a></li>
+            <li><a class="hashtag-link" href="/#practice">Practice</a></li>
+            <li><a href="/blueteam">Blue Team</a></li>
+            <li><a href="/goldteam">Gold Team</a></li>
+            <li><a href="/store" target="_blank">Online Store</a></li>
           </ul>
         </li><li>
-          <a>Classes</a>
+          <a href="/classes">Classes</a>
+          <ul class="sub-pages">
+            <li><a class="hashtag-link" href="/classes#schedule">Schedule</a></li>
+            <li><a class="hashtag-link" href="/classes#basics">Basics</a></li>
+            <li><a class="hashtag-link" href="/classes#competitive">Competitive</a></li>
+            <li><a class="hashtag-link" href="/classes#sportadvising">Sport Advising</a></li>
+            <li><a class="hashtag-link" href="/classes#privatelessons">Private Lessons</a></li>
+          </ul>
       </ul>
       <ul class="main-pages right">
+        <li>
+          <a href="/news">News</a>
         </li><li>
-          <a>News</a>
-        </li><li>
-          <a>About</a>
+          <a href="/about">About</a>
         </li>
       </ul>
     </div>
   </nav>
 
+{block:IndexPage}
+    {block:TagPage} 
+      <style>
+          .cover {
+              display: none;
+          }
+      </style>
+    {block:TagPage} 
+
   <div class="cover">
-    <div class="content">2
+    <div class="content">
       <a class="scroll-down" href="#practice">v</a>
     </div>
     <div class="video-container">
-      <video loop preload autoplay muted src="https://www.tumblr.com/video_file/95702400964/tumblr_naufe33ewP1tjhjyc"></video>
+        <div class="loading">Loading video …</div>
+      <video loop autoplay muted>
+        <source src="https://www.tumblr.com/video_file/95702400964/tumblr_naufe33ewP1tjhjyc" type="video/mp4">
+        <source src="https://dl.dropboxusercontent.com/u/1794155/Work/Cal%20Gymnastics%20Club/intro.webm" type="video/webm">      
+      </video>
     </div>
   </div>
+{/block:IndexPage}
+
 </header>
 
+<div class="main-content">
+
+    {block:TagPage} 
+    <h2 class="club-news tag-title">Club News</h2>
+    <h2 class="daily-inspiration tag-title">Daily Inspiration Blog</h2>
+    {block:TagPage}
+
+<ol class="posts">
+{block:Posts}
+{block:NewDayDate} 
+<h2 class="date">{Month} {DayOfMonth}</h2>
+{/block:NewDayDate}
+    {block:Text}
+        <li class="post text">
+            {block:Title}
+                <h3 class='post-title'><a href="{Permalink}">{Title}</a></h3>
+            {/block:Title}{Body}
+        </li>
+    {/block:Text}{block:Photo}
+        <li class="post photo">
+            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+
+            {block:Caption}
+                <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </li>
+    {/block:Photo}{block:Panorama}
+        <li class="post panorama">
+            {LinkOpenTag}
+                <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+            {LinkCloseTag}{block:Caption}
+                <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </li>
+    {/block:Panorama}{block:Photoset}
+        <li class="post photoset">
+            {Photoset-700}{block:Caption}
+                <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </li>
+    {/block:Photoset}{block:Quote}
+        <li class="post quote">
+            "{Quote}"
+
+            {block:Source}
+                <div class="source">{Source}</div>
+            {/block:Source}
+        </li>
+    {/block:Quote}{block:Link}
+        <li class="post link">
+            <a href="{URL}" class="link" {Target}>{Name}</a>
+
+            {block:Description}
+                <div class="description">{Description}</div>
+            {/block:Description}
+        </li>
+    {/block:Link}{block:Chat}
+        <li class="post chat">
+            {block:Title}
+                <h3><a href="{Permalink}">{Title}</a></h3>
+            {/block:Title}
+
+            <ul class="chat">
+                {block:Lines}
+                    <li class="{Alt} user_{UserNumber}">
+                        {block:Label}
+                            <span class="label">{Label}</span>
+                        {/block:Label}{Line}
+                    </li>
+                {/block:Lines}
+            </ul>
+        </li>
+    {/block:Chat}{block:Video}
+        <li class="post video">
+            {Video-700}{block:Caption}
+                <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </li>
+    {/block:Video}{block:Audio}
+        <li class="post audio">
+            {AudioEmbed}{block:Caption}
+                <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </li>
+    {/block:Audio}
+    {/block:Posts}
+</ol>
+
+{block:IndexPage}
+    {block:TagPage} 
+    <style>
+        article.home {
+            display: none;
+        }
+    </style>
+    {block:TagPage} 
+
 <article class="home">
+    <script>
+        {block:TagPage} 
+            return;
+        {block:TagPage} 
+        
+    function centerVideo() {
+      var $container = $('.video-container');
+      var $video = $container.find('video');
+      $video.css('top', ($container.height()-$video.height())*0.5);
+      $video.css('left', ($container.width()-$video.width())*0.5);
+    }
+    
+    function onScroll(){
+      var $window = $(window);
+      var scroll = $window.scrollTop();
+      var windowHeight = $window.height();
+    
+      var $navigation = $('.navigation');
+      var $title = $('.title');
+    
+      if (scroll > 0) {
+        $navigation.addClass('opaque');
+      } else {
+        $navigation.removeClass('opaque');
+      }
+    
+      var titleToHeader = windowHeight * 0.5 + 40;
+    
+      if (scroll > titleToHeader) {
+        if (!$title.hasClass('in-header')) {
+          $title.addClass('in-header');
+          setTimeout(function(){
+            $title.css('transition', 'all 0.2s');
+          }, 1);
+        }
+      } else {
+        if ($title.hasClass('in-header')) {
+          $title.css('transition', 'none');
+          $title.removeClass('in-header');
+        }
+      }
+    
+      var titleSlideOut = windowHeight * 0.5 + 60;
+    
+      if (scroll < titleSlideOut) {
+        $title.addClass('slide-out');
+      } else {
+        $title.removeClass('slide-out');
+      }
+    }
+    
+    $(function(){
+      $(window).resize(centerVideo);
+    
+        $(window).scroll(onScroll);
+        $(window).resize(onScroll);
+        
+
+        $('.loading').addClass('displayed');
+
+        
+      $('.cover video').on('loadeddata', function() {
+        centerVideo();
+      });
+    
+      onScroll();
+    });
+    </script>
   <style>
-    .practice .information {
+       .practice .information {
       margin: 50px 0 100px;
     }
 
     .practice .hours {
       font-size: 24px;
+      font-weight: 400;
+    }
+
+    .practice .hours-temp {
+      font-size: 24px;
+      font-weight: 400;
+      color: Red;
+    }
+    
+    .practice .restrictions {
+      font-size: 18px;
+    }
+    
+    .practice .restrictions table {
+        display: inline-table;
+        text-align: left;
+        margin-top: 10px;
+    }
+    
+    .practice .restrictions table th {
+        font-weight: 400;
+        padding-right: 20px;
     }
 
     .practice .hours,
-    .practice .location {
+    .practice .location,
+    .practice .restrictions {
       text-align: center;
       margin: 20px 0;
     }
-
-
-    .posts {
-      list-style: none;
-      padding: 0;
-      margin: 30px auto;
-      width: 700px;
-      font-size: 18px;
-      text-align: justify;
+    
+    .practice .mailing-list {
+        font-size: 18px;
+        text-align: center;
+    }
+    
+    .practice .mailing-list a {
+        text-decoration: underline;
     }
 
     .pricing {
@@ -118,8 +887,18 @@
     }
 
     .option .classes {
-      height: 70px;
+      height: 170px;
     }
+    
+    .option .classes .days {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .option .classes .days:last-child {
+        margin-bottom: 0;
+    }
+
 
     .option .price {
       font-weight: 400;
@@ -180,75 +959,171 @@
     .cash-note {
       text-align: center;
     }
+    
+    .practice {
+        background: #53626F;
+    }
+    
+    .practice .posts {
+        padding: 0;
+      margin: 30px auto;
+      width: 700px;
+      text-align: justify;
+        display: block;
+    }
+
+    
+    .practice .posts .post {
+        display: none;
+    }
+    
+    .practice .posts .frontpage.post {
+        display: block;
+    }    
+    
+    .practice .posts .more-posts {
+      display: none;
+      margin: -2em auto 0;
+      width: 700px;
+      text-align: right;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+    
+    .practice .posts .frontpage.post ~ .more-posts {
+        display: block;
+    }
   </style>
 
   <section class="practice">
-    <a class="anchor" id="practice"></a>
+  <a class="anchor" id="practice"></a>
     <div class="content">
       <h2>Practice</h2>
       <div class="information">
         <div class="hours">
-          Monday–Friday, 8:30–11:30p
+          Monday - Friday, 8:30–11:30p
         </div>
         <div class="location">
-          <a href="https://www.google.com/maps/place/Cal+Gymnastics+Club" target="_blank">
+          <a href="https://www.google.com/maps/place/Cal+Gymnastics+Club/@37.865435,-122.247196,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0xec28c2332a67f5f0" target="_blank">
             Golden Bear Rec Center, Sport Lane 25, Berkeley, CA
           </a>
         </div>
+        <div class="restrictions">
+        <table>
+            <tr>
+                <th>Tuesday</th><td>basics class and coached practice</td>
+            </tr>
+            <tr>
+                <th>Monday, Wednesday—Friday</th><td>basics classes and open practice</td>
+            </tr>
+        </table>
+        </div>
+        <div class="mailing-list">
+            Join our <script type="text/javascript">
+            <!--
+            // protected email script by Joe Maller
+            // JavaScripts available at http://www.joemaller.com
+            // this script is free to use and distribute
+            // but please credit me and/or link to my site
+
+            emailE='lists.berkeley.edu'
+            emailE=('calgymnasticsclub-join' + '@' + emailE)
+            document.write('<a href="mailto:' + emailE + '?subject=Join">mailing list</a>')
+
+            //-->
+          </script> to be notified of changes to<br/>gym practices and other important club news.
+        </div>
       </div>
-      <ul class="posts">
-        <li class="post">
-          <h3>Free Trial period Monday, August 25–Friday, September 5</h3>
-          <p>
-            Welcome to the beginning of the Fall season. We're starting off
-            with the two week free trial period when you can drop-in to the blue team
-            practice 8:30–9:30p for free. We have basics classes every day
-            of the week so come and join to start or continue your gymnastics practice.
-          </p>
+
+            <ol class="posts">
+        {block:Posts}
+            {block:Text}
+                <li class="post text {TagsAsClasses}">
+                    {block:Title}
+                        <h3><a href="{Permalink}">{Title}</a></h3>
+                    {/block:Title}{Body}
+                </li>
+            {/block:Text}{block:Photo}
+        <li class="post photo {TagsAsClasses}">
+            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+
+            {block:Caption}
+                <div class="caption">{Caption}</div>
+            {/block:Caption}
         </li>
-      </ol>
+    {/block:Photo}{block:Video}
+        <li class="post video {TagsAsClasses}">
+            {Video-700}{block:Caption}
+                <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </li>
+    {/block:Video}
+        {/block:Posts}
+                  <li class="more-posts"><a href="/news">Read more news</a></li>
+          </ol>
+
     </div>
   </section>
 
   <section class="pricing">
+  <a class="anchor" id="options"></a>
     <div class="content">
       <h2>Options</h2>
 
       <div class="options">
         <div class="drop-in option">
           <div class="name">Drop-In</div>
-          <div class="hours">Weekdays<br/>8:30–9:30p (1h)</div>
-          <div class="classes">Basics Classes</div>
-          <div class="price"><del>$5 per drop-in*</del><br/><span class="extra">Free through September 5</span></div>
-          <div class="requirements"><del>limited to 3 drop-ins per semester</del><br/><span class="extra">Come anytime during the Free Trial</span></div>
-          <div class="action">
-            <a href="https://myrecreation.berkeley.edu/store/index.aspx?view=activity&Unit=32&Rsc=265" target="_blank">
+          <!-- <div class="hours">Weekdays<br/>8:30–9:30p (1h)</div> -->
+          <div class="hours">No Drop-Ins at this time</div>
+          <div class="classes">
+            Basics Classes
+            <div class="days">Monday—Friday</div>
+            Open Practice
+            <div class="days">Tuesday—Friday</div>
+          </div>
+          <div class="price">$5 per drop-in*</div>
+          <div class="requirements">limited to 3 drop-ins per semester<br/>must be 17 or older</div>
+          <div class="action"> Please wait until the free trial period at the end of August
+            <!-- <a href="/store" target="_blank">
               Buy Drop-In<br/>in the Online Store
-            </a>
+            </a> -->
           </div>
         </div>
 
         <div class="blue-team option">
           <div class="name">Blue Team</div>
-          <div class="hours">Weekdays<br/>8:30–9:30p (1h)</div>
-          <div class="classes">Basics Classes</div>
-          <div class="price">$65 per semester*</div>
-          <div class="requirements">requires RSF membership</br>and club sign up</div>
-          <div class="action">
-            <a href="https://myrecreation.berkeley.edu/store/index.aspx?view=activity&Unit=32&Rsc=265" target="_blank">
-              Join Blue Team
-            </a>
+          <!--<div class="hours">Weekdays<br/>8:30–9:30p (1h)</div>-->
+          <div class="hours">No blue team practice until the end of August</div>
+          <div class="classes">
+            Basics Classes
+            <div class="days">Monday—Friday</div>
+            Open Practice
+            <div class="days">Tuesday—Friday</div>
+          </div>
+          <div class="price">$70 per semester*</div>
+          <div class="requirements">requires RSF membership<br/>and club sign up</div>
+          <div class="action"> Please wait until the free trial period at the end of August
+            <!--<a href="/blueteam">-->
+            <!--  Join Blue Team-->
+            <!--</a>-->
           </div>
         </div>
 
         <div class="gold-team option">
           <div class="name">Gold Team</div>
           <div class="hours">Weekdays<br/>8:30–11:30p (3h)<br/><span class="extra">Weekends</span></div>
-          <div class="classes">Basics Classes<br/>Competitive Classes</div>
-          <div class="price">$85 per semester*</div>
+          <div class="classes">
+            Coached Practice
+            <div class="days">Monday</div>          
+            Basics Classes
+            <div class="days">Tuesday—Friday</div>
+            Open Practice
+            <div class="days">Tuesday—Friday</div>
+            </div>
+          <div class="price">$90 per semester*</div>
           <div class="requirements">requires RSF membership,<br/>club sign up, volunteering,</br>team uniform and competing</div>
           <div class="action">
-            <a href="https://myrecreation.berkeley.edu/store/index.aspx?view=activity&Unit=32&Rsc=265" target="_blank">
+            <a href="/goldteam">
               Join Gold Team
             </a>
           </div>
@@ -261,13 +1136,12 @@
     </div>
   </section>
 </article>
+{/block:IndexPage}
+
+</div>
 
 <footer class="footer">
   <nav class="content">
-    <div class="under-development">
-      Website is still under development. We apologize for any missing links and promise they will start working very shortly.
-    </div>
-
     <div class="footer-links">
       <ul class="footer-links-group">
         <li>
@@ -276,32 +1150,23 @@
         <li>
           <a href="/">Home</a>
         </li><li>
-          <a>Blue Team</a>
+          <a href="/blueteam">Blue Team</a>
         </li><li>
-          <a>Gold Team</a>
+          <a href="/goldteam">Gold Team</a>
         </li><li>
-          <a href="https://myrecreation.berkeley.edu/store/index.aspx?view=activity&Unit=32&Rsc=265" target="_blank">Online Store</a>
+          <a href="/store" target="_blank">Online Store</a>
         </li><li>
-          <a>Classes</a>
+          <a href="/classes">Classes</a>
         </li><li>
-          <a>News</a>
+          <a href="/news">News</a>
         </li><li>
-          <a>About</a>
+          <a href="/tagged/Daily-Inspiration">Daily Inspiration</a>          
+        </li><li>
+          <a href="/about">About</a>
         </li>
       </ul>
-
-      <ul class="footer-links-group center">
-        <li>
-          <h3>Members Only Pages</h3>
-        </li>
-        <li>
-          <a target="_blank">Blue Team Members Page</a>
-        </li><li>
-        <a target="_blank">Gold Team Members Page</a>
-      </li><li>
-        <a href="http://officers.calgymnasticsclub.com" target="_blank">Club Officers Wiki</a>
-      </li>
-      </ul>
+      
+  
 
       <ul class="footer-links-group center">
         <li>
@@ -333,11 +1198,13 @@
             // but please credit me and/or link to my site
 
             emailE='lists.berkeley.edu'
-            emailE=('gymnastics_club-join' + '@' + emailE)
+            emailE=('calgymnasticsclub-join' + '@' + emailE)
             document.write('<a href="mailto:' + emailE + '?subject=Join">Mailing List</a>')
 
             //-->
           </script>
+        </li><li>
+        <a href="https://give.berkeley.edu/egiving/index.cfm?fund=FU1138000">Donate</a>
         </li><li></li><li>
           <h3>Contact</h3>
         </li><li>
@@ -349,7 +1216,7 @@
             // but please credit me and/or link to my site
 
             emailE='gmail.com'
-            emailE=('calclubgymnastics' + '@' + emailE)
+            emailE=('calclubgymnastics-join' + '@' + emailE)
             document.write('<a href="mailto:' + emailE + '">Email</a>')
 
             //-->
