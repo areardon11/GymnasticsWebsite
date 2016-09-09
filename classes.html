@@ -1,16 +1,557 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cal Gymnastics Club</title>
-  <link rel="stylesheet" href="style.css" type="text/css" />
+  <title>
+  {Title} 
+  {block:PostTitle} — {PostTitle}{/block:PostTitle} 
+  {block:TagPage} — {Tag}{/block:TagPage} 
+  </title>
   <meta charset="UTF-8">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="general.js"></script>
-
-  <style>
-    .header {
-      height: 70px;
+  <script>
+      $(function() {
+  
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        var scroll = $(window).scrollTop();
+        var targetScroll = target.offset().top;
+        var time = Math.abs(targetScroll-scroll);
+        $('html,body').animate({
+          scrollTop: targetScroll
+        }, Math.min(time * 1.5, 1500));
+        return false;
+      }
     }
+  });
+  
+      $('.hashtag-link').click(function(){
+        $('.sub-pages').addClass('unhover')
+      });
+      
+      $('.hashtag-link').mouseout(function(){
+        $('.sub-pages').removeClass('unhover')
+      })
+});
+  </script>
+  
+  <style>
+    @import url(http://fonts.googleapis.com/css?family=Lato:300,400,300italic);
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: "Lato";
+      font-weight: 300;
+      min-width: 1050px;
+      -webkit-font-smoothing: antialiased;
+      font-size: 18px;
+    }
+
+    .tumblr_controls {
+      top: auto !important;
+      bottom: 0 !important;
+    }
+    
+    a {
+      color: white;
+      text-decoration: none;
+      transition: all 0.1s;
+      cursor: default;
+    }
+    
+    a:hover {
+      color: #2D637F;
+    }
+    
+    a[href]:hover {
+      color: #FDB515;
+      cursor: pointer;
+    }
+    
+    article p a,
+    .post p a {
+  text-decoration: underline;
+}
+
+    .anchor {
+      position: relative;
+      display: block;
+      top: -70px;
+      visibility: hidden;
+    }
+    
+    .anchor.padding {
+      top: -90px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+    
+    strong {
+  font-weight: 400;
+}
+    
+    figure {
+        margin: 0;
+    }
+    
+    .content {
+      width: 1000px;
+      margin: 0 auto;
+      padding: 50px 0;
+    }
+    
+    .header {
+      position: relative;
+      width: 100%;
+    {block:IndexPage} 
+      height: 100%;
+    {/block:IndexPage}
+    {block:PermalinkPage} 
+      height: 70px;
+    {/block:PermalinkPage}
+      min-width: 1050px;
+    }
+    
+    {block:TagPage}
+    .header {
+      height: 70px !important;
+    }
+    {block:TagPage} 
+
+    
+    .title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      margin-left: -300px;
+      margin-top: -170px;
+      z-index: 10;
+      text-align: center;
+    }
+    
+    .title.in-header {
+      position: fixed;
+      top: 0;
+      margin-top: 0;
+      z-index: 20;
+      height: 70px;
+      padding: 10px;
+      width: 500px;
+      margin-left: -250px;
+    }
+    
+    .title.in-header .logo {
+      display: inline-block;
+      width: auto;
+      height: 50px;
+      vertical-align: middle;
+    }
+    
+    .title.in-header .name {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 30px;
+      margin: 0;
+    }
+    
+    .title.in-header .cal {
+      display: none;
+    }
+    
+    .title.in-header.slide-out {
+      top: -70px;
+    }
+    
+    .title .logo {
+      width: 200px;
+    }
+    
+    .title .name {
+      text-transform: uppercase;
+      text-shadow: 0 2px 10px black;
+      font-size: 50px;
+      font-weight: 300;
+      color: white;
+    }
+    
+    .navigation {
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      height: 70px;
+      z-index: 10;
+      background: rgba(0, 50, 98, 0);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0);
+      transition: all 0.2s;
+    }
+    
+    .navigation:hover,
+    .navigation.opaque {
+      background: #003262;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .navigation .content {
+      padding: 0;
+      width: 1040px;
+      max-width: 100%;
+    }
+    
+    .home.navigation a[href="/"] {
+      color: #FDB515;
+    }
+    
+    .Classes.navigation a[href="/classes"] {
+      color: #FDB515;
+    }
+    
+    .main-pages {
+      display: inline-block;
+      list-style: none;
+      height: 70px;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .main-pages.right {
+      float: right;
+    }
+    
+    .main-pages li {
+      display: inline-block;
+      position: relative;
+      height: 100%;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+    
+    .main-pages li a {
+      display: block;
+      padding: 20px;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .main-pages .sub-pages {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      padding: 0;
+      margin: 0;
+      top: 100%;
+      left: 0;
+      z-index: -1;
+      min-width: 200px;
+      background: rgba(0, 50, 98, 0);
+      transition: all 0.2s;
+    }
+    
+        .main-pages .sub-pages.right {
+            left: auto;
+            right: 0;
+            text-align: right;
+        }
+        
+    .navigation:hover .sub-pages,
+    .navigation.opaque .sub-pages {
+      background: #003262;
+    }
+    
+    .main-pages li:hover .sub-pages {
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    .main-pages li:hover .sub-pages.unhover {
+      visibility: hidden;
+      opacity: 0;
+    }
+    
+    .sub-pages li a {
+      display: block;
+      height: 50px;
+      padding: 10px 20px;
+      white-space: nowrap;
+    }
+    
+    .cover {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .cover .content {
+      position: absolute;
+      top: 70px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      width: auto;
+      margin: 0;
+      text-align: center;
+    }
+    
+    @keyframes scrollDownPulse {
+      from { opacity:1; }
+      to { opacity:0; }
+    }
+    
+    @-webkit-keyframes scrollDownPulse {
+      from { opacity:1; }
+      to { opacity:0; }
+    }
+    
+    .scroll-down {
+      position: absolute;
+      text-align: center;
+      z-index: 2;
+      text-transform: uppercase;
+      bottom: 20px;
+      left: 50%;
+      width: 50px;
+      margin-left: -25px;
+      font-size: 30px;
+      transform: scale(2,1);
+      -webkit-transform: scale(2,1);
+      text-decoration: none;
+      color: #FDB515;
+      transition: all 0.2s;
+    
+      animation-name: scrollDownPulse;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-duration: 1s;
+      animation-direction: alternate;
+    
+      -webkit-animation-name: scrollDownPulse;
+      -webkit-animation-timing-function: ease-in-out;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-direction: alternate;
+    }
+    
+    .scroll-down:hover {
+      color: white;
+      opacity: 1;
+      -webkit-animation-name: none;
+    }
+    
+    .cover .video-container {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      background: black;
+    }
+    
+    .cover .loading {
+        position: absolute;
+        top: 75%;
+        left: 0;
+        right: 0;
+        color: #FDB515;
+        text-align: center;
+        opacity: 0;
+        transition: all 20s 1s;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5em;
+    }
+    
+    .cover .loading.displayed {
+        opacity: 1;
+    }
+    
+    
+    .cover video {
+      position: absolute;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+    }
+    
+    body {
+      background-color: #003262;        
+    }
+    
+    .main-content {
+      font-size: 20px;
+      background: #2D637F;
+      color: white;
+      min-height: 50%;
+      padding: 1px 0;
+    }
+    
+    .Inspiration .main-content,
+    .inspiration .main-content{
+        background-color: #C2B9A7;
+        color: black;
+    }
+    
+    article section h2 {
+      text-transform: uppercase;
+      font-size: 30px;
+      font-weight: 300;
+    }
+    
+    article section h2:first-child {
+      margin-top: 0;
+    }
+    
+    .footer {
+      background-color: #003262;
+      color: white;
+    }
+    
+    .footer .content {
+      padding: 20px 0;
+    }
+    
+    .footer .under-development {
+      text-align: center;
+      color: #FDB515;
+      margin-bottom: 20px;
+    }
+    
+    .footer h3 {
+      font-weight: 400;
+      font-size: 18px;
+      margin: 0;
+    }
+    
+    .footer .footer-links {
+      display: table;
+      width: 100%;
+    }
+    
+    .footer-links-group {
+      display: table-cell;
+      list-style: none;
+      margin: 0;
+    }
+    
+    .footer-links-group.center {
+      text-align: center;
+    }
+    
+    .footer-links-group.right {
+      text-align: right;
+    }
+    
+    .footer-links-group li {
+      display: block;
+      height: 25px;
+    }
+    
+    .footer-links-group a {
+      padding: 5px 0;
+    }
+    
+    .footer-info {
+      display: table-cell;
+    }
+    
+    .tag-title {
+        display: none;
+        width: 1000px;
+        margin: 50px auto 10px;
+    }
+    
+    .Inspiration .daily-inspiration.tag-title,
+    .inspiration .daily-inspiration.tag-title {
+        display: block;
+    }
+
+    .news .club-news.tag-title,
+    .News .club-news.tag-title {
+        display: block;
+    }
+    
+    .posts {
+        width: 1000px;
+        margin: 0 auto;
+        padding: 50px 0;
+        list-style: none;
+    }
+    
+    .posts h3 {
+        text-align: left;
+        font-size: 23px;
+        font-weight: 400;
+    }
+    
+    .posts .post h2 {
+        font-size: 21px;
+        font-weight: 400;        
+    }
+    
+    {block:IndexPage}
+    .posts {
+        display: none;
+    }
+    {/block:IndexPage}   
+    
+    {block:TagPage} 
+    .posts {
+        display: block !important;
+    }
+    {block:TagPage} 
+    
+    
+    
+    .date {
+        font-weight: 300;
+        opacity: 0.5;
+        margin: 2em 0;
+    }
+    
+    .date:first-child {
+        margin-top: 0;
+    }
+    
+    .post {
+        width: 700px;
+        margin: 0 auto 5em;
+        font-size: 18px;
+    }
+    
+    .post li {
+        margin-bottom: 0.5em;
+    }
+
+   
+   .post.photo img {
+       width: 100%;
+       margin: 0 auto;
+       display: block;
+   }
+   
+   .post.text img {
+       display: block;
+       margin: 0.5em auto;
+   }
+   
+   .post.text video {
+       max-width: 500px;
+       margin: 0.5em auto;
+       display: block;
+   }
+   
   </style>
 </head>
 <body>
@@ -366,13 +907,13 @@ a.appointment:hover {
       <tr class="data-row">
         <td class="coach">Beginners Coach</td>
         <td class="time">8:30–9:30</td>
-        <td colspan="2">Coach Rotation<span class="class-type">schedule below</span></td>
-        <td colspan="2"><a href="#isaiah">Isaiah</a></td>
-        <td><a href="#alli">Alli</a></td>
-        <td><a href="#seanl">Sean L.</a></td>
+        <td colspan="2">Matej Jan and Hayden Shelby<span class="class-type"></span></td>
+        <td colspan="2"><a href="#isaiah">Damon Laguna</a></td>
+        <td><a href="#alli">Hannah Holat</a></td>
+        <td><a href="#seanl">Elana Straus and Sheelah Bearfoot</a></td>
         <td>No Class<span class="class-type">Observing Coach: Allie</span></td>
       </tr>
-      <tr class="header-row">
+      <!-- <tr class="header-row">
         <th colspan="2"><a href="competitive">Competitive Classes</a></th>
         <th class="half-width">Men</th>
         <th class="half-width">Women</th>
@@ -416,7 +957,7 @@ a.appointment:hover {
         <td class="empty"></td>
         <td><a href="#julie">Julie</a>,<br/><a href="#hannah">Hannah</a>,<br/><a href="#seanc">Sean C.</a></td>
         <td><a href="#julie">Julie</a>,<br/><a href="#hannah">Hannah</a>,<br/><a href="#seanc">Sean C.</a></td>
-      </tr>
+      </tr> -->
     </table>
   </section>
 </div>
@@ -456,19 +997,6 @@ a.appointment:hover {
     <h3>Coaches</h3>
 
     <div class="coaches">
-      <div class="coach">
-        <a class="anchor padding" id="eva"></a>
-        <figure>
-          <img src="https://31.media.tumblr.com/4e6f8be98830570eef1cb9dd45e636d8/tumblr_inline_nauzbg2WTr1qcsurn.jpg" />
-        </figure>
-        <div class="info">
-          <h3>Eva Thomas</h3>
-          <div class="hometown">Iowa City, IA</div>
-          <div class="description">
-            Eva has been competing in gymnastics for the last six years, first in the Junior Olympic program up through Level 7, then for Cal Club Gymnastics. She also currently teaches the club's beginner class on Tuesdays. Her strengths are on the uneven bars and balance beam, particularly in the areas of dance, flexibility, and static holds. Outside of gymnastics she also has experience in competitive figure skating, many styles of dance, and circus.
-          </div>
-        </div>
-      </div>
 
       <div class="coach">
         <a class="anchor padding" id="seanc"></a>
@@ -484,20 +1012,21 @@ a.appointment:hover {
         </div>
       </div>
 
-      </div><div class="coaches">
-
-    <div class="coach">
-      <a class="anchor padding" id="sarah"></a>
-      <figure>
-        <img src="https://31.media.tumblr.com/ce0526ad391bb4696e86166d6503d6bf/tumblr_inline_nauzbn0El41qcsurn.jpg" />
-      </figure>
-      <div class="info">
-        <h3>Sarah Curiel</h3>
-        <div class="description">
-          Hi! I'm Sarah and I have been doing gymnastics for the past nine years and coaching for six. I competed up through level 9 before college, and joined the club team when I started Cal. I've coached all levels of recreational gymnastics/summer camps as well as competitive gymnastics on occasion. I have also been the women's team captain of the club team for three years, so feel free to ask me any questions! I have been coaching classes for the club team for three years and have had all skill levels, from complete beginners to more advanced with gymnastics experience. I am always willing to help with any skills or events, but most frequently I coach tumbling such as round-offs, front and back handsprings, and front and back flips. Hope to see you around the gym :) Go Bears!
+      <div class="coach">
+        <a class="anchor padding" id="allie"></a>
+        <div class="info">
+          <h3>Allie Snyder</h3>
+          <div class="description">
+            Hello Fellow Flippers! My name is Allie Snyder and I am the current Vice President of the Cal Gymnastics Club. I started gymnastics when I was three and competed dance/tumbling routines up until I was ten. I came to the Club in January 2014 and competed at the NAIGC Nationals that April. I will be coaching the blue team beginner’s class on Wednesdays. I look forward to this next year of learning even more gymnastic skills!            </div>
         </div>
+        <figure class="full-bottom">
+          <img src="https://31.media.tumblr.com/9845221c75e08c32f5991b74ed5e8503/tumblr_inline_nb1s1f9qOZ1qcsurn.jpg" />
+        </figure>
       </div>
+
     </div>
+
+    <!-- <div class="coaches">
 
       <div class="coach">
         <a class="anchor padding" id="matej"></a>
@@ -515,66 +1044,7 @@ a.appointment:hover {
           </div>
         </div>
       </div>
-  </div>
-
-    <div class="coaches">
-
-
-      <div class="coach">
-        <a class="anchor padding" id="damon"></a>
-        <figure class="full">
-          <img src="https://31.media.tumblr.com/4a0afe686e143fda27c513eb0dbf462c/tumblr_inline_nb1s33X8a11qcsurn.jpg" />
-        </figure>
-        <div class="info">
-          <h3>Damon Laguna</h3>
-          <div class="description">
-            Hi, I'm Damon Laguna and I am a second year and intended business/ film double major. I have been competing in gymnastics since I was six and recently placed 10th at the NAIGC National Championship on the Pommel Horse. I have also coached gymnastics for three years prior to coming to Cal at Victory Gymnastics Academy in Southern California. I really enjoy coaching the men's six events but have a lot of experience coaching many different levels on every gymnastics event.          </div>
-        </div>
-      </div>
-
-
-      <div class="coach">
-        <a class="anchor padding" id="allie"></a>
-        <div class="info">
-          <h3>Allie Snyder</h3>
-          <div class="description">
-            Hello Fellow Flippers! My name is Allie Snyder and I am the current Vice President of the Cal Gymnastics Club. I started gymnastics when I was three and competed dance/tumbling routines up until I was ten. I came to the Club in January 2014 and competed at the NAIGC Nationals that April. I will be coaching the blue team beginner’s class on Wednesdays. I look forward to this next year of learning even more gymnastic skills!            </div>
-        </div>
-        <figure class="full-bottom">
-          <img src="https://31.media.tumblr.com/9845221c75e08c32f5991b74ed5e8503/tumblr_inline_nb1s1f9qOZ1qcsurn.jpg" />
-        </figure>
-      </div>
-
-    </div>
-
-    <div class="coaches">
-
-      <div class="coach">
-        <a class="anchor padding" id="connor"></a>
-        <figure>
-          <img src="https://31.media.tumblr.com/1f573b2d4495267cab9abb50af246171/tumblr_inline_nb1s2e7bYI1qcsurn.jpg" />
-        </figure>
-        <div class="info">
-          <h3>Connor Capestany</h3>
-          <div class="description">
-            Hey all, I'm Connor and I've been doing gymnastics for about four years now. I actually started doing gymnastics at the club and grew to like it immensely. I have also been coaching kids as a job for the past year. I would say my strengths in coaching are basic to intermediate tumbling, uneven bars, beam, and vault. I don't have a lot of experience teaching the mens' events, but I do know enough to give basic instruction on all of them. My favorite skills to teach are back tucks (back flips), front tucks (front flips), and handsprings. I also know how to spot these skills so don't be afraid to ask for help!
-          </div>
-        </div>
-      </div>
-
-      <div class="coach">
-        <a class="anchor padding" id="seanl"></a>
-        <figure class="right">
-          <img src="https://31.media.tumblr.com/83c08cb812bd7dc6d7160337920bc430/tumblr_inline_nb1s41kGYB1qcsurn.jpg" />
-        </figure>
-        <div class="info">
-          <h3>Sean Lail</h3>
-          <div class="description">
-            Hi! I’m Sean and I have been doing gymnastics, in some form or another, for my entire life. From couch gymnastics as a child, to boys team as an adolescent, and Cal Club Team member as an adult, I’ve done it all! As for coaching, I have 10 years under my belt of coaching all levels or recreational gymnastics as well as team and club gymnastics. I have been a part of the Cal Club Team, volunteer coaching and competing, for the past three years. My specialty is Floor and Vault and so naturally, my coaching strengths are teaching intermediate/advanced tumbling and vaulting. No need to worry though,  I am knowledgeable and capable of teaching any other apparatus too so don’t hesitate to stop me and  ask for help!! See you around        </div>
-        </div>
-      </div>
-
-    </div>
+    </div> -->
 
     <div class="coaches">
 
@@ -590,6 +1060,17 @@ a.appointment:hover {
         </div>
       </div>
 
+      <div class="coach">
+        <a class="anchor padding" id="seanl"></a>
+        <figure class="right">
+          <img src="https://31.media.tumblr.com/83c08cb812bd7dc6d7160337920bc430/tumblr_inline_nb1s41kGYB1qcsurn.jpg" />
+        </figure>
+        <div class="info">
+          <h3>Sean Lail</h3>
+          <div class="description">
+            Hi! I’m Sean and I have been doing gymnastics, in some form or another, for my entire life. From couch gymnastics as a child, to boys team as an adolescent, and Cal Club Team member as an adult, I’ve done it all! As for coaching, I have 10 years under my belt of coaching all levels or recreational gymnastics as well as team and club gymnastics. I have been a part of the Cal Club Team, volunteer coaching and competing, for the past three years. My specialty is Floor and Vault and so naturally, my coaching strengths are teaching intermediate/advanced tumbling and vaulting. No need to worry though,  I am knowledgeable and capable of teaching any other apparatus too so don’t hesitate to stop me and  ask for help!! See you around        </div>
+        </div>
+      </div>
 
       <div class="coach spacer">
       </div>
@@ -647,6 +1128,19 @@ a.appointment:hover {
     </div>
   </div>
 
+  </div>
+
+  <div class="coaches">
+
+
+      <div class="coach">
+        <a class="anchor padding" id="damon"></a>
+        <figure class="full"><img src="https://67.media.tumblr.com/4a0afe686e143fda27c513eb0dbf462c/tumblr_inline_nb1s33X8a11qcsurn.jpg"/></figure><div class="info">
+          <h3>Damon Laguna</h3>
+          <div class="description">
+            Hi, I&rsquo;m Damon Laguna and I am a second year and intended business/ film double major. I have been competing in gymnastics since I was six and recently placed 10th at the NAIGC National Championship on the Pommel Horse. I have also coached gymnastics for three years prior to coming to Cal at Victory Gymnastics Academy in Southern California. I really enjoy coaching the men&rsquo;s six events but have a lot of experience coaching many different levels on every gymnastics event.          </div>
+        </div>
+      </div>
   </div>
   </section>
 </div>
